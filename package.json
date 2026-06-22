@@ -8,6 +8,12 @@
     "maven-code-graph": "dist/cli.js",
     "mcg": "dist/cli.js"
   },
+  "files": [
+    "dist",
+    "skills",
+    "lib",
+    "NOTICE"
+  ],
   "scripts": {
     "build": "tsc && cp src/db/schema.sql dist/db/schema.sql",
     "dev": "tsc --watch",
