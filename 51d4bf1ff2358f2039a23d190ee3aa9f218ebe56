@@ -1,0 +1,79 @@
+src/parser/jar-scanner.ts
+  8db9a049c5b33a8a 1-4,15-16,22,55,100,109-118,120-123,125,129-141,143,145,151-152,160-161,169,171,173,175-176,178-182,184,199-230,232-291,293-366
+  bd94fb5b13d3d561 177,231
+src/parser/classfile-parser.ts
+  8db9a049c5b33a8a 1-249
+src/parser/java-parser.ts
+  8db9a049c5b33a8a 7-11,47,51,56,70,76,80,85,126-128,140,148,151,187-189,197
+src/indexer/indexer.ts
+  8db9a049c5b33a8a 1-6,8,11,14,16,18,20,34,37-83,89,91,93-96,98-107,109-112,114-118,121-124,130,133-137,140-148
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "51d4bf1ff2358f2039a23d190ee3aa9f218ebe56",
+  "prompts": {
+    "8db9a049c5b33a8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d67f287f-d392-4d53-bd45-6af375ddeec5",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "hzweikang15",
+      "messages": [],
+      "total_additions": 701,
+      "total_deletions": 243,
+      "accepted_lines": 694,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "docs/ARCHITECTURE.md": {
+          "additions": 85,
+          "deletions": 80,
+          "accepted_lines": 86
+        },
+        "src/parser/java-parser.ts": {
+          "additions": 24,
+          "deletions": 36,
+          "accepted_lines": 22
+        },
+        "src/parser/classfile-parser.ts": {
+          "additions": 249,
+          "accepted_lines": 249
+        },
+        "src/indexer/indexer.ts": {
+          "additions": 113,
+          "deletions": 41,
+          "accepted_lines": 108
+        },
+        "docs/INTRO.md": {
+          "accepted_lines": 2
+        },
+        "src/parser/jar-scanner.ts": {
+          "additions": 230,
+          "deletions": 86,
+          "accepted_lines": 227
+        }
+      }
+    },
+    "bd94fb5b13d3d561": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "abc2c276-7191-4a11-b1bf-fcf6985299ac",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "hzweikang15",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 2,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "src/parser/jar-scanner.ts": {
+          "additions": 2,
+          "deletions": 1,
+          "accepted_lines": 2
+        }
+      }
+    }
+  }
+}
