@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // maven-code-graph CLI — project-scoped Maven dependency indexer
 
+import { readFileSync } from 'fs';
 import { Command } from 'commander';
 import { ensureIndexed } from './indexer/indexer.js';
 import { searchNodes, getNodeByFQN, findImplementations, getMethods, getEdges, getStats } from './db/queries.js';
@@ -9,12 +10,14 @@ import { detectProject } from './project/detector.js';
 import { readState, isStale } from './project/state.js';
 import type { ArtifactCoordinate, Artifact, Node, SearchResult } from './types.js';
 
+const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
+
 const program = new Command();
 
 program
   .name('mcg')
   .description('maven-code-graph — project-scoped Maven dependency indexer')
-  .version('0.1.0');
+  .version(pkg.version);
 
 // ============================================================
 // init — index current project's dependencies
