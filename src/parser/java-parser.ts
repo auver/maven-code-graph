@@ -4,6 +4,11 @@
 import Parser from 'tree-sitter';
 import Java from 'tree-sitter-java';
 
+export interface ParseOptions {
+  /** Only index public classes and public methods (default: false). */
+  publicOnly?: boolean;
+}
+
 // Singleton parser
 let _parser: Parser | null = null;
 function getParser(): Parser {
@@ -39,16 +44,16 @@ export interface ParsedMethod {
  * Parse a Java source file and extract all class declarations.
  * Returns all classes found (including nested top-level ones).
  */
-export function parseJavaSource(source: string): ParsedClass[] {
+export function parseJavaSource(source: string, opts: ParseOptions = {}): ParsedClass[] {
   const parser = getParser();
   const tree = parser.parse(source);
   const root = tree.rootNode;
+  const publicOnly = opts.publicOnly ?? false;
 
   const packageName = extractPackage(root, source);
   const results: ParsedClass[] = [];
 
-  // Find all top-level class/interface/enum declarations
-  collectClasses(root, source, packageName, results);
+  collectClasses(root, source, packageName, results, publicOnly);
   return results;
 }
 
@@ -62,23 +67,22 @@ function extractPackage(node: any, source: string): string {
   return '';
 }
 
-function collectClasses(node: any, source: string, pkg: string, results: ParsedClass[]): void {
+function collectClasses(node: any, source: string, pkg: string, results: ParsedClass[], publicOnly: boolean): void {
   for (const child of node.namedChildren) {
     const type = child.type;
     if (type === 'class_declaration' || type === 'interface_declaration' ||
         type === 'enum_declaration' || type === 'annotation_type_declaration') {
 
-      const info = parseClassDecl(child, source, pkg);
+      const info = parseClassDecl(child, source, pkg, publicOnly);
       if (info) results.push(info);
     }
-    // Recurse for nested/inner classes at top level of program
     if (type === 'program') {
-      collectClasses(child, source, pkg, results);
+      collectClasses(child, source, pkg, results, publicOnly);
     }
   }
 }
 
-function parseClassDecl(node: any, source: string, pkg: string): ParsedClass | null {
+function parseClassDecl(node: any, source: string, pkg: string, publicOnly: boolean): ParsedClass | null {
   let simpleName = '';
   const modifiers: string[] = [];
   let superClass: string | null = null;
@@ -103,7 +107,6 @@ function parseClassDecl(node: any, source: string, pkg: string): ParsedClass | n
         for (const iface of child.namedChildren) {
           interfaces.push(iface.namedChildren.map((c: any) => c.text).join('.'));
         }
-        // Also handle type_identifier directly in super_interfaces
         if (child.namedChildren.length === 0 || child.namedChildren[0].type !== 'type_list') {
           for (const c of child.namedChildren) {
             interfaces.push(c.text);
@@ -120,21 +123,21 @@ function parseClassDecl(node: any, source: string, pkg: string): ParsedClass | n
 
   if (!simpleName) return null;
 
-  // Extract Javadoc from preceding comment
+  // Index all classes regardless of visibility (needed for search and implementations).
+  // Only methods are filtered by publicOnly.
+
   docstring = extractDocstring(node, source);
 
-  // Determine kind
   let kind: ParsedClass['kind'] = 'class';
   if (node.type === 'interface_declaration') kind = 'interface';
   else if (node.type === 'enum_declaration') kind = 'enum';
   else if (node.type === 'annotation_type_declaration') kind = 'annotation';
 
-  // Extract methods
   const methods: ParsedMethod[] = [];
   if (classBody) {
     for (const child of classBody.namedChildren) {
       if (child.type === 'method_declaration' || child.type === 'constructor_declaration') {
-        const m = parseMethod(child, source);
+        const m = parseMethod(child, source, publicOnly);
         if (m) methods.push(m);
       }
     }
@@ -142,18 +145,10 @@ function parseClassDecl(node: any, source: string, pkg: string): ParsedClass | n
 
   const className = pkg ? `${pkg}.${simpleName}` : simpleName;
 
-  return {
-    className,
-    simpleName,
-    kind,
-    superClass,
-    interfaces,
-    docstring,
-    methods,
-  };
+  return { className, simpleName, kind, superClass, interfaces, docstring, methods };
 }
 
-function parseMethod(node: any, source: string): ParsedMethod | null {
+function parseMethod(node: any, source: string, publicOnly: boolean): ParsedMethod | null {
   let name = '';
   let returnType = 'void';
   let isPublic = false;
@@ -189,24 +184,17 @@ function parseMethod(node: any, source: string): ParsedMethod | null {
   }
   if (!name) return null;
 
+  // Skip non-public methods in publicOnly mode
+  if (publicOnly && !isPublic) return null;
+
   docstring = extractDocstring(node, source);
 
-  // Build human-readable signature
   const params = parameterNames.map((p, i) => `${parameterTypes[i] || ''} ${p}`.trim()).join(', ');
   const visibility = isPublic ? 'public' : 'package-private';
   const stat = isStatic ? 'static ' : '';
   const sig = `${visibility} ${stat}${returnType} ${name}(${params})`;
 
-  return {
-    name,
-    signature: sig,
-    returnType,
-    parameterTypes,
-    parameterNames,
-    docstring,
-    isPublic,
-    isStatic,
-  };
+  return { name, signature: sig, returnType, parameterTypes, parameterNames, docstring, isPublic, isStatic };
 }
 
 function extractParams(node: any, types: string[], names: string[]): void {
