@@ -1,0 +1,49 @@
+skills/maven-code-graph/SKILL.md
+  8db9a049c5b33a8a 27,30,33
+README.md
+  8db9a049c5b33a8a 75,78
+README_zh.md
+  8db9a049c5b33a8a 72,75
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "6a2d7f3423c7bf0b0cee4a42b66297c038020051",
+  "prompts": {
+    "8db9a049c5b33a8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d67f287f-d392-4d53-bd45-6af375ddeec5",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Wills",
+      "messages": [],
+      "total_additions": 36,
+      "total_deletions": 36,
+      "accepted_lines": 12,
+      "overriden_lines": 1,
+      "per_file_stats": {
+        "package.json": {
+          "additions": 1,
+          "deletions": 1,
+          "overriden_lines": 1
+        },
+        "README.md": {
+          "additions": 7,
+          "deletions": 6,
+          "accepted_lines": 4
+        },
+        "README_zh.md": {
+          "additions": 7,
+          "deletions": 6,
+          "accepted_lines": 4
+        },
+        "skills/maven-code-graph/SKILL.md": {
+          "additions": 21,
+          "deletions": 23,
+          "accepted_lines": 4
+        }
+      }
+    }
+  }
+}
