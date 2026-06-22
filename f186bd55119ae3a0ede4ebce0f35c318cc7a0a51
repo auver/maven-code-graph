@@ -1,0 +1,30 @@
+package.json
+  8db9a049c5b33a8a 11-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "f186bd55119ae3a0ede4ebce0f35c318cc7a0a51",
+  "prompts": {
+    "8db9a049c5b33a8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d67f287f-d392-4d53-bd45-6af375ddeec5",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Wills",
+      "messages": [],
+      "total_additions": 7,
+      "total_deletions": 1,
+      "accepted_lines": 6,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "package.json": {
+          "additions": 7,
+          "deletions": 1,
+          "accepted_lines": 6
+        }
+      }
+    }
+  }
+}
