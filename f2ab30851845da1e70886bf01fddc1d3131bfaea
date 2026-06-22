@@ -1,0 +1,263 @@
+src/indexer/indexer.ts
+  8db9a049c5b33a8a 1-77
+src/dependency/resolver.ts
+  8db9a049c5b33a8a 1-134
+test/index.test.ts
+  8db9a049c5b33a8a 1-251
+README.md
+  8db9a049c5b33a8a 1-140
+package.json
+  8db9a049c5b33a8a 1-34
+src/parser/java-parser.ts
+  8db9a049c5b33a8a 1-259
+src/db/schema.sql
+  8db9a049c5b33a8a 1-123
+src/parser/jar-scanner.ts
+  8db9a049c5b33a8a 1-222
+src/db/queries.ts
+  8db9a049c5b33a8a 1-191
+tsconfig.json
+  8db9a049c5b33a8a 1-17
+.gitignore
+  8db9a049c5b33a8a 1-26
+src/types.ts
+  8db9a049c5b33a8a 1-104
+src/cli.ts
+  8db9a049c5b33a8a 1-198
+LICENSE
+  8db9a049c5b33a8a 1-21
+src/parser/source-parser.ts
+  8db9a049c5b33a8a 1-146
+NOTICE
+  8db9a049c5b33a8a 1-191
+src/db/index.ts
+  8db9a049c5b33a8a 1-63
+skills/maven-code-graph/SKILL.md
+  8db9a049c5b33a8a 1-113
+src/project/detector.ts
+  8db9a049c5b33a8a 1-38
+src/project/state.ts
+  8db9a049c5b33a8a 1-64
+README_zh.md
+  8db9a049c5b33a8a 1-145
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "0730939b4b754e73586cdcec099922ff0825459b",
+  "prompts": {
+    "8db9a049c5b33a8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d67f287f-d392-4d53-bd45-6af375ddeec5",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "hzweikang15",
+      "messages": [],
+      "total_additions": 4688,
+      "total_deletions": 13,
+      "accepted_lines": 2562,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        ".gitignore": {
+          "additions": 27,
+          "deletions": 1,
+          "accepted_lines": 27
+        },
+        "NOTICE": {
+          "additions": 191,
+          "accepted_lines": 191
+        },
+        "LICENSE": {
+          "additions": 21,
+          "accepted_lines": 21
+        },
+        "src/cli.ts": {
+          "additions": 198,
+          "accepted_lines": 198
+        },
+        "dist/project/detector.js": {
+          "additions": 24,
+          "accepted_lines": 24
+        },
+        "docs/ARCHITECTURE.md": {
+          "additions": 348,
+          "deletions": 3,
+          "accepted_lines": 351
+        },
+        "dist/parser/java-parser.js": {
+          "additions": 223,
+          "accepted_lines": 223
+        },
+        "src/project/detector.ts": {
+          "additions": 38,
+          "accepted_lines": 38
+        },
+        "dist/dependency/resolver.d.ts": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        "src/db/index.ts": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "dist/project/detector.d.ts": {
+          "additions": 11,
+          "accepted_lines": 11
+        },
+        "dist/db/index.js": {
+          "additions": 49,
+          "accepted_lines": 49
+        },
+        "dist/parser/source-parser.d.ts": {
+          "additions": 10,
+          "accepted_lines": 10
+        },
+        "dist/dependency/resolver.js": {
+          "additions": 106,
+          "accepted_lines": 106
+        },
+        "dist/parser/source-parser.js": {
+          "additions": 104,
+          "accepted_lines": 104
+        },
+        "tsconfig.json": {
+          "additions": 17,
+          "accepted_lines": 17
+        },
+        "dist/types.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "dist/db/queries.js": {
+          "additions": 176,
+          "accepted_lines": 176
+        },
+        "dist/project/state.js": {
+          "additions": 54,
+          "accepted_lines": 54
+        },
+        "src/parser/source-parser.ts": {
+          "additions": 146,
+          "accepted_lines": 146
+        },
+        "dist/parser/jar-scanner.js": {
+          "additions": 169,
+          "accepted_lines": 169
+        },
+        "dist/indexer/indexer.js": {
+          "additions": 65,
+          "accepted_lines": 65
+        },
+        "dist/parser/class-parser.js": {
+          "additions": 120,
+          "accepted_lines": 120
+        },
+        "dist/cli.d.ts": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "dist/db/schema.sql": {
+          "additions": 123,
+          "accepted_lines": 123
+        },
+        "src/db/queries.ts": {
+          "additions": 191,
+          "accepted_lines": 191
+        },
+        "package.json": {
+          "additions": 34,
+          "accepted_lines": 34
+        },
+        "dist/cli.js": {
+          "additions": 175,
+          "accepted_lines": 175
+        },
+        "docs/INTRO.md": {
+          "additions": 166,
+          "deletions": 2,
+          "accepted_lines": 168
+        },
+        "dist/project/state.d.ts": {
+          "additions": 10,
+          "accepted_lines": 10
+        },
+        "README_zh.md": {
+          "additions": 151,
+          "deletions": 3,
+          "accepted_lines": 151
+        },
+        "dist/types.d.ts": {
+          "additions": 91,
+          "accepted_lines": 91
+        },
+        "dist/parser/class-parser.d.ts": {
+          "additions": 17,
+          "accepted_lines": 17
+        },
+        "dist/indexer/indexer.d.ts": {
+          "additions": 7,
+          "accepted_lines": 7
+        },
+        "src/parser/jar-scanner.ts": {
+          "additions": 222,
+          "accepted_lines": 222
+        },
+        "test/index.test.ts": {
+          "additions": 251,
+          "accepted_lines": 251
+        },
+        "src/dependency/resolver.ts": {
+          "additions": 134,
+          "accepted_lines": 134
+        },
+        "skills/maven-code-graph/SKILL.md": {
+          "additions": 114,
+          "deletions": 1,
+          "accepted_lines": 114
+        },
+        "src/project/state.ts": {
+          "additions": 64,
+          "accepted_lines": 64
+        },
+        "src/db/schema.sql": {
+          "additions": 123,
+          "accepted_lines": 123
+        },
+        "dist/db/queries.d.ts": {
+          "additions": 18,
+          "accepted_lines": 18
+        },
+        "src/indexer/indexer.ts": {
+          "additions": 77,
+          "accepted_lines": 77
+        },
+        "src/parser/java-parser.ts": {
+          "additions": 259,
+          "accepted_lines": 259
+        },
+        "dist/db/index.d.ts": {
+          "additions": 5,
+          "accepted_lines": 5
+        },
+        "src/types.ts": {
+          "additions": 104,
+          "accepted_lines": 104
+        },
+        "README.md": {
+          "additions": 146,
+          "deletions": 3,
+          "accepted_lines": 146
+        },
+        "dist/parser/jar-scanner.d.ts": {
+          "additions": 10,
+          "accepted_lines": 10
+        },
+        "dist/parser/java-parser.d.ts": {
+          "additions": 24,
+          "accepted_lines": 24
+        }
+      }
+    }
+  }
+}
