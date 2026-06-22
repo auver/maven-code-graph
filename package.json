@@ -1,0 +1,34 @@
+{
+  "name": "maven-code-graph",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Project-scoped Maven dependency indexer — like codegraph for your JARs",
+  "type": "module",
+  "bin": {
+    "maven-code-graph": "dist/cli.js",
+    "mcg": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc && cp src/db/schema.sql dist/db/schema.sql",
+    "dev": "tsc --watch",
+    "test": "vitest --run",
+    "start": "node dist/cli.js",
+    "postinstall": "npx skills add maven-code-graph --path skills/maven-code-graph 2>/dev/null || true"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.5.0",
+    "commander": "^12.0.0",
+    "tree-sitter": "^0.21.1",
+    "tree-sitter-java": "^0.23.5",
+    "xml2js": "^0.6.2",
+    "yauzl": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.0.0",
+    "@types/xml2js": "^0.4.14",
+    "@types/yauzl": "^2.10.3",
+    "typescript": "^5.9.0",
+    "vitest": "^4.0.0"
+  }
+}
