@@ -1,6 +1,6 @@
 {
   "name": "maven-code-graph",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "license": "MIT",
   "description": "Project-scoped Maven dependency indexer — like codegraph for your JARs",
   "type": "module",
