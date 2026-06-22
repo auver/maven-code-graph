@@ -72,9 +72,10 @@ The AI goes from import statement to complete method signatures in **0.2 seconds
 
 ```bash
 npm install -g maven-code-graph
+npx skills add auver/maven-code-graph
 ```
 
-Installs the `maven-code-graph` CLI and registers the AI skill automatically.
+First command installs the CLI, second registers the AI skill.
 
 ---
 

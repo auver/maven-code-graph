@@ -24,15 +24,13 @@ metadata:
 which maven-code-graph 2>/dev/null || echo "NOT_INSTALLED"
 ```
 
-如果输出 `NOT_INSTALLED` 或 `maven-code-graph not found`，说明 CLI 未安装。自动执行安装：
+如果输出 `NOT_INSTALLED`，自动执行：
 
 ```bash
-cd /Users/admin/git/maven-code-graph && npm link
+npm install -g maven-code-graph
 ```
 
-`npm link` 会将 `maven-code-graph` 命令注册到全局（同时注册 `mcg` 作为短别名）。安装完成后继续后续流程。
-
-如果已安装（输出 `/usr/local/bin/maven-code-graph` 或类似路径），直接跳过安装。
+如果已安装，直接跳过。
 
 ## 何时使用
 

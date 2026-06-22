@@ -69,9 +69,10 @@ AI 从 import 到拿到完整方法签名，只需 **0.2 秒**。
 
 ```bash
 npm install -g maven-code-graph
+npx skills add auver/maven-code-graph
 ```
 
-一步完成，包含 `maven-code-graph` 命令和 AI Skill 的自动安装。
+第一步安装 CLI，第二步注册 AI Skill。
 
 ---
 
